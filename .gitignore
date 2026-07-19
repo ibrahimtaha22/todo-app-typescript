@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+
+# Editor directories and files
+.vscode/
+
+# OS hidden files
+.DS_Store
+
+# Custom files
+plan.md
