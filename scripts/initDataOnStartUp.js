@@ -12,7 +12,6 @@ export const initDataOnStartUp = (localStorageKey) => {
     const CheckedTaskIdFromDB = getFromDB("checkedTask-id") || [];
 
     if (dataFromDB) {
-      debugger;
       dataFromDB.forEach((element) => {
         const checkedClass = CheckedTaskIdFromDB.includes(`${element.id}`)
           ? "TaskList__taskContent--isActive"
