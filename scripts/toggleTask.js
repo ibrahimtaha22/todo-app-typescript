@@ -1,4 +1,5 @@
 import { saveToDB } from "./saveToDB";
+import { removeIdFromDB } from "./removeFromDB";
 
 //DONE FIXME:  Toggling any task always updates the first task.
 
@@ -11,10 +12,13 @@ export const toggleTask = (event) => {
     const isChecked = itemElementForClick.classList.contains(
       "TaskList__taskContent--isActive",
     );
-
     const taskId = itemElementForClick.lastElementChild.firstElementChild.id;
-
-    saveToDB("checkedTask-id", `${taskId}`);
+    if (isChecked) {
+      saveToDB("checkedTask-id", `${taskId}`);
+    } else {
+      // remove TASK-Id from database
+      removeIdFromDB(taskId);
+    }
   } else if (
     event.type === "keydown" &&
     event.key === "Enter" &&
