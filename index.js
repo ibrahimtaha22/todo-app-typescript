@@ -9,7 +9,7 @@ import {
 } from "./scripts/elements";
 import { initDataOnStartUp } from "./scripts/initDataOnStartUp";
 import { removeTask } from "./scripts/removeTask";
-import { toggleCompletedTasks } from "./scripts/toggleCompletedTasks";
+import { toggleShowHideButton } from "./scripts/toggleShowHideButton";
 import { toggleTask } from "./scripts/toggleTask";
 import { toggleTheme } from "./scripts/toggleTheme";
 
@@ -24,7 +24,7 @@ TaskList.addEventListener("click", afterTaskAdded);
 
 TaskList.addEventListener("keydown", toggleTask);
 
-showHideTaskButton.addEventListener("click", toggleCompletedTasks);
+showHideTaskButton.addEventListener("click", toggleShowHideButton);
 
 /*
  -DarkTheme
