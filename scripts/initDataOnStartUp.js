@@ -2,6 +2,8 @@ import {
   DarkThemeToggleActivate,
   DarkThemeToggleDeactivate,
   mainParent,
+  showHideTaskButton,
+  TaskList,
 } from "./elements";
 import { getFromDB } from "./getFromDB";
 import { renderTask } from "./renderTask";
@@ -39,6 +41,16 @@ export const initDataOnStartUp = (localStorageKey) => {
       mainParent.classList.toggle("App--isDark");
       DarkThemeToggleActivate.classList.remove("hidden");
       DarkThemeToggleDeactivate.classList.add("hidden");
+    }
+  } else if (localStorageKey === "toggleShowHideButton") {
+    const isShowButton = getFromDB("isShowButton");
+    const isHideCompleted = getFromDB("isHideCompleted");
+    if (isHideCompleted && isShowButton) {
+      showHideTaskButton.classList.add("TaskList__link--isActive");
+      TaskList.classList.add("TaskList__list--hideCompleted");
+    } else if (!isHideCompleted || !isShowButton) {
+      showHideTaskButton.classList.remove("TaskList__link--isActive");
+      TaskList.classList.remove("TaskList__list--hideCompleted");
     }
   }
 };
