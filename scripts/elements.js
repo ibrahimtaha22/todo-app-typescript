@@ -19,5 +19,4 @@ export const TaskList = document.querySelector(".TaskList__list");
 export const getdeleteTaskButton = () => {
   return document.querySelector(".TaskList__deleteIcon");
 };
-export const toggleCompletedTaskButton =
-  document.querySelector(".TaskList__link");
+export const showHideTaskButton = document.querySelector(".TaskList__link");

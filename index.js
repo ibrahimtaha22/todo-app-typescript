@@ -5,7 +5,7 @@ import {
   darkTheme,
   getdeleteTaskButton,
   TaskList,
-  toggleCompletedTaskButton,
+  showHideTaskButton,
 } from "./scripts/elements";
 import { initDataOnStartUp } from "./scripts/initDataOnStartUp";
 import { removeTask } from "./scripts/removeTask";
@@ -24,7 +24,7 @@ TaskList.addEventListener("click", afterTaskAdded);
 
 TaskList.addEventListener("keydown", toggleTask);
 
-toggleCompletedTaskButton.addEventListener("click", toggleCompletedTasks);
+showHideTaskButton.addEventListener("click", toggleCompletedTasks);
 
 /*
  -DarkTheme
