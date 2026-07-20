@@ -1,8 +1,8 @@
 import { TaskList, showHideTaskButton } from "./elements";
-import { hasAnyCompletedTask } from "./hasAnyCompletedTask";
+import { hasCompletedTask } from "./hasCompletedTask";
 
 export const toggleShowHideButton = () => {
-  if (hasAnyCompletedTask()) {
+  if (hasCompletedTask()) {
     showHideTaskButton.classList.toggle("TaskList__link--isActive");
     TaskList.classList.toggle("TaskList__list--hideCompleted");
   } else {
