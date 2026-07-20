@@ -16,6 +16,7 @@ import { toggleTheme } from "./scripts/toggleTheme";
 // initDataOnStartUp
 initDataOnStartUp("toggleTheme");
 initDataOnStartUp("tasks");
+initDataOnStartUp("toggleShowHideButton");
 
 darkTheme.addEventListener("click", toggleTheme);
 addingTaskForm.addEventListener("submit", AddingTask);
