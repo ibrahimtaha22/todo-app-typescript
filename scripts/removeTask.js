@@ -1,5 +1,5 @@
 import { getFromDB } from "./getFromDB";
-import { removeFromDB } from "./removeFromDB";
+import { removeFromDB, removeIdFromDB } from "./removeFromDB";
 import { renderTask } from "./renderTask";
 
 export const removeTask = (event) => {
@@ -9,8 +9,10 @@ export const removeTask = (event) => {
     return;
   } else {
     const removedItem = event.target.parentElement.parentElement;
+    const removedIdTask = event.target.parentElement.firstElementChild.id;
 
     removeFromDB(removedItem);
+    removeIdFromDB(removedIdTask);
     renderTask(removedItem, "remove");
   }
 };
