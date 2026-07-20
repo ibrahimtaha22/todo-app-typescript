@@ -19,3 +19,5 @@ export const removeFromDB = (parentItem) => {
     }
   });
 };
+
+export const removeIdFromDB = () => {};
