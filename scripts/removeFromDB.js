@@ -20,4 +20,20 @@ export const removeFromDB = (parentItem) => {
   });
 };
 
-export const removeIdFromDB = () => {};
+export const removeIdFromDB = (taskId) => {
+  if (!taskId) {
+    return;
+  } else {
+    const CheckedTaskIdFromDB = getFromDB("checkedTask-id");
+    if (!CheckedTaskIdFromDB) {
+      return;
+    }
+    const isId = CheckedTaskIdFromDB.includes(taskId);
+    if (isId) {
+      const isId = CheckedTaskIdFromDB.includes(taskId);
+      const IdIndex = CheckedTaskIdFromDB.indexOf(taskId);
+      const splicedTaskIdArr = CheckedTaskIdFromDB.toSpliced(IdIndex, 1);
+      localStorage.setItem("checkedTask-id", JSON.stringify(splicedTaskIdArr));
+    }
+  }
+};
