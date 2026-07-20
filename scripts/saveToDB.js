@@ -29,5 +29,7 @@ export const saveToDB = (key, data) => {
 
     // 3. بنحفظ المصفوفة كلها مرة واحدة باسم المفتاح
     localStorage.setItem(key, JSON.stringify(task_ids));
+  } else {
+    localStorage.setItem(key, JSON.stringify(data));
   }
 };
