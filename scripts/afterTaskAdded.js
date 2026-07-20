@@ -1,5 +1,4 @@
 import { removeTask } from "./removeTask";
-import { toggleCompletedTasks } from "./toggleCompletedTasks";
 import { toggleTask } from "./toggleTask";
 
 export const afterTaskAdded = (event) => {

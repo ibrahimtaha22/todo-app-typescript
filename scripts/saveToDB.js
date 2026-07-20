@@ -8,16 +8,16 @@ export const saveToDB = (key, data) => {
   } else if (key === "toggleTheme") {
     localStorage.setItem(key, JSON.stringify(data));
     console.log(typeof localStorage.getItem(key), key);
-    // } else if (key === `task-id`) {
+    // } else if (key === `checkedTask-id`) {
     const task_ids = [];
 
-    getFromDB(`task-id`) && task_ids.push(getFromDB(`task-id`));
+    getFromDB(`checkedTask-id`) && task_ids.push(getFromDB(`checkedTask-id`));
     task_ids.includes(data) || task_ids.push(data);
 
     task_ids.forEach((task_id) => {
       localStorage.setItem(key, JSON.stringify(task_id));
     });
-  } else if (key === "task-id") {
+  } else if (key === "checkedTask-id") {
     // 1. بنجيب الداتا القديمة، ونتأكد إنها مصفوفة، ولو مفيش داتا بنبدأ بمصفوفة فاضية
     const existingData = getFromDB(key);
     const task_ids = Array.isArray(existingData) ? existingData : [];

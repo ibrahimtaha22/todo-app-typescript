@@ -13,13 +13,7 @@ export const toggleTask = (event) => {
       "TaskList__taskContent--isActive",
     );
     const taskId = itemElementForClick.lastElementChild.firstElementChild.id;
-    saveToDB("task-id", `${taskId}`);
-    const isCheckedStatus = {
-      isChecked,
-      taskId,
-    };
-
-    saveToDB(`checkedTaskId-${taskId}`, isCheckedStatus);
+    saveToDB("checkedTask-id", `${taskId}`);
   } else if (
     event.type === "keydown" &&
     event.key === "Enter" &&

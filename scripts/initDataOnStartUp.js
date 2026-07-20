@@ -9,7 +9,7 @@ import { renderTask } from "./renderTask";
 export const initDataOnStartUp = (localStorageKey) => {
   if (localStorageKey === "tasks") {
     const dataFromDB = getFromDB("tasks");
-    const CheckedTaskIdFromDB = getFromDB("task-id") || [];
+    const CheckedTaskIdFromDB = getFromDB("checkedTask-id") || [];
 
     if (dataFromDB) {
       debugger;
