@@ -4,17 +4,20 @@ import {
   mainParent,
   showHideTaskButton,
   TaskList,
-} from "./elements";
-import { getFromDB } from "./getFromDB";
-import { renderTask } from "./renderTask";
+} from "./elements.js";
+import { getFromDB, renderEmptyState, renderTask } from "./utils.ts";
 
-export const initDataOnStartUp = (localStorageKey) => {
+type DbaseElment = {
+  id: number;
+  task: string;
+};
+export const initDataOnStartUp = (localStorageKey: string) => {
   if (localStorageKey === "tasks") {
     const dataFromDB = getFromDB("tasks");
     const CheckedTaskIdFromDB = getFromDB("checkedTask-id") || [];
 
-    if (dataFromDB) {
-      dataFromDB.forEach((element) => {
+    if (dataFromDB && dataFromDB.length) {
+      dataFromDB.forEach((element: DbaseElment) => {
         const checkedClass = CheckedTaskIdFromDB.includes(`${element.id}`)
           ? "TaskList__taskContent--isActive"
           : "";
@@ -34,23 +37,27 @@ export const initDataOnStartUp = (localStorageKey) => {
 
         renderTask(TaskItem, "adding");
       });
+    } else {
+      renderEmptyState();
     }
   } else if (localStorageKey === "toggleTheme") {
     const returnedData = getFromDB("toggleTheme");
     if (returnedData?.isDark) {
-      mainParent.classList.toggle("App--isDark");
-      DarkThemeToggleActivate.classList.remove("hidden");
-      DarkThemeToggleDeactivate.classList.add("hidden");
+      mainParent?.classList.toggle("App--isDark");
+      DarkThemeToggleActivate?.classList.remove("hidden");
+      DarkThemeToggleDeactivate?.classList.add("hidden");
     }
   } else if (localStorageKey === "toggleShowHideButton") {
     const isShowButton = getFromDB("isShowButton");
     const isHideCompleted = getFromDB("isHideCompleted");
     if (isHideCompleted && isShowButton) {
-      showHideTaskButton.classList.add("TaskList__link--isActive");
-      TaskList.classList.add("TaskList__list--hideCompleted");
+      showHideTaskButton?.classList.add("TaskList__link--isActive");
+      TaskList?.classList.add("TaskList__list--hideCompleted");
     } else if (!isHideCompleted || !isShowButton) {
-      showHideTaskButton.classList.remove("TaskList__link--isActive");
-      TaskList.classList.remove("TaskList__list--hideCompleted");
+      showHideTaskButton?.classList.remove("TaskList__link--isActive");
+      TaskList?.classList.remove("TaskList__list--hideCompleted");
     }
+  } else {
+    return;
   }
 };
