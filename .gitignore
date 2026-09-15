@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 
+
 # Production build
 dist/
 build/
@@ -17,3 +18,7 @@ build/
 
 # Custom files
 plan.md
+scripts/hasAnyCompletedTask.js
+node_modules/.package-lock.json
+node_modules/.vite/deps/_metadata.json
+scripts/hasAnyCompletedTask.js
