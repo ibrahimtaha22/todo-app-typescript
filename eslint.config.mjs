@@ -1,5 +1,9 @@
 export default [
   {
+    ignores: ["dist"],
+  },
+
+  {
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -13,6 +17,7 @@ export default [
         confirm: "readonly",
       },
     },
+
     rules: {
       "no-unused-vars": "error",
       "no-undef": "error",
