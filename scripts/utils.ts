@@ -13,9 +13,10 @@ import type {
   Task,
 } from "./types";
 
-import checkmarkIcon from "../assets/icon-checkmark.svg";
-import basketIcon from "../assets/icon-basket.svg";
-import emptyIcon from "../assets/icon-empty.svg";
+// ✅ استخدام المسارات المباشرة من مجلد public بدون import
+const checkmarkIcon = "./icon-checkmark.svg";
+const basketIcon = "./icon-basket.svg";
+const emptyIcon = "./icon-empty.svg";
 
 export const AddingTask: (event: Event) => void = (event) => {
   event.preventDefault();
@@ -37,7 +38,7 @@ export const AddingTask: (event: Event) => void = (event) => {
       <div class="TaskList__checkbox" tabindex="0" role="button">
         <img
           class="TaskList__checkboxImg"
-          src=${checkmarkIcon}
+          src="${checkmarkIcon}"
           alt="checkmark"
         >
       </div>
@@ -48,7 +49,7 @@ export const AddingTask: (event: Event) => void = (event) => {
         </p>
 
         <img
-          src=${basketIcon}
+          src="${basketIcon}"
           class="TaskList__deleteIcon"
           alt="basket-icon"
         >
@@ -185,7 +186,7 @@ export const renderEmptyState: RenderEmptyState = () => {
     TaskList.innerHTML = `<li class="EmptyList">
       <img
         class="EmptyList__img"
-        src=${emptyIcon}
+        src="${emptyIcon}"
         alt="list is empty"
       />
       <p>قائمة المهام فارغة</p>
