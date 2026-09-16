@@ -13,8 +13,8 @@ import type {
   Task,
 } from "./types";
 
-import checkmarkIcon from "../assets/icon-checkmark.svg";
-import basketIcon from "../assets/icon-basket.svg";
+import checkmarkIcon from "../assets/icon-youtube.svg";
+import basketIcon from "../assets/icon-facebook.svg";
 
 export const AddingTask: (event: Event) => void = (event) => {
   event.preventDefault();
