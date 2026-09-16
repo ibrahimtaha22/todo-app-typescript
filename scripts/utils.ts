@@ -13,7 +13,6 @@ import type {
   Task,
 } from "./types";
 
-// ✅ استخدام المسارات المباشرة من مجلد public بدون import
 const checkmarkIcon = "./icon-checkmark.svg";
 const basketIcon = "./icon-basket.svg";
 const emptyIcon = "./icon-empty.svg";
