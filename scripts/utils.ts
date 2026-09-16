@@ -13,8 +13,9 @@ import type {
   Task,
 } from "./types";
 
-import checkmarkIcon from "../assets/icon-youtube.svg";
-import basketIcon from "../assets/icon-facebook.svg";
+import checkmarkIcon from "../assets/icon-checkmark.svg";
+import basketIcon from "../assets/icon-basket.svg";
+import emptyIcon from "./assets/icon-empty.svg";
 
 export const AddingTask: (event: Event) => void = (event) => {
   event.preventDefault();
@@ -184,7 +185,7 @@ export const renderEmptyState: RenderEmptyState = () => {
     TaskList.innerHTML = `<li class="EmptyList">
       <img
         class="EmptyList__img"
-        src="./assets/icon-empty.svg"
+        src=${emptyIcon}
         alt="list is empty"
       />
       <p>قائمة المهام فارغة</p>
